@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as TestUtils from 'react-addons-test-utils';
-import { Hello } from './hello';
+import { Search } from './Search';
 
-describe('hello component', function() {
+
+describe('Search component', function() {
 });

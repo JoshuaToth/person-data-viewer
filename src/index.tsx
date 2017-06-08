@@ -1,11 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import {Hello} from './app/hello';
+import {Search} from './app/Search';
 
 import './index.less';
 
 ReactDOM.render(
-  <Hello/>,
+  <Search/>,
   document.getElementById('root')
 );
