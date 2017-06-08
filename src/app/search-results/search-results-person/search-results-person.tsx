@@ -1,9 +1,10 @@
 import * as React from 'react';
+import * as PersonCard from './search-results-person-card/search-results-person-card'
 
 export const SearchResultsPerson = (props) => {
   return (
-    <div className="col-5">
-      <h1>{'SearchResults Person'}</h1>
+    <div>
+      <PersonCard.SearchResultsPersonCard name="Fred Flingle" email="fingle@gmail.com" phone="0425879078"/>
     </div>
   );
 };

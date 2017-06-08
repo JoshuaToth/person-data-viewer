@@ -5,6 +5,7 @@ import {Search} from './app/Search';
 
 import './index.less';
 
+
 ReactDOM.render(
   <Search/>,
   document.getElementById('root')

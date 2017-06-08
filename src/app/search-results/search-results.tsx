@@ -9,7 +9,7 @@ interface ISearchResultsState {};
 export class SearchResults extends React.Component<ISearchResultsProps, ISearchResultsState> {
   render() {
     return (
-      <div className="row">
+      <div>
         <Aggregate.SearchResultsAggregate />
         <Person.SearchResultsPerson />
       </div>
