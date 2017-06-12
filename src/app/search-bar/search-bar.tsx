@@ -20,10 +20,10 @@ export class SearchBar extends React.Component<ISearchBarProps, ISearchBarState>
       },
       tags: []
     })
-    	.then(resp => {
-        console.log(resp);
-        this.props.onSubmit(resp.data);
-      });
+    .then(resp => {
+      console.log(resp);
+      this.props.onSubmit(resp.data);
+    });
   }
 
   state = {

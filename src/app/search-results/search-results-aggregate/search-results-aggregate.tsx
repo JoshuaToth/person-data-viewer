@@ -6,15 +6,14 @@ import axios from 'axios';
 import './search-results-aggregate.less';
 
 interface ISearchAggregateProps {
-  onSubmit: {(data):void}
+  onSubmit: {(data):void},
   tagAggs: any
 };
 
 interface ISearchBarAggregateState {};
 
 export class SearchResultsAggregate extends React.Component<ISearchAggregateProps, ISearchBarAggregateState> {
-  // Possibly pass around the search objects?
-  aggregateSearch(key) {
+  aggregateSearch = (key) => {
     axios.post(`http://localhost:8080/api/person/search`, {
       name: {
         firstName: "",
@@ -23,7 +22,7 @@ export class SearchResultsAggregate extends React.Component<ISearchAggregateProp
       tags: [key]
     })
     .then(resp => {
-      console.log(resp);
+      console.log(this.props);
       this.props.onSubmit(resp.data);
     });
   };

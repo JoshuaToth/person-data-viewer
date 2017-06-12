@@ -33,7 +33,7 @@ export class Search extends React.Component<ISearchProps, ISearchState> {
     return (
       <Grid>
         <SearchBar onSubmit={this.searchForSophia}/>
-        <SearchResults resultData={this.state.resultData}/>
+        <SearchResults onSubmit={this.searchForSophia} resultData={this.state.resultData}/>
       </Grid>
     );
   }
