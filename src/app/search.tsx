@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { SearchBar } from './search-bar/search-bar';
 import { SearchResults } from './search-results/search-results';
+import { Grid } from 'react-bootstrap'
 
 
 interface ISearchProps {};
@@ -30,10 +31,10 @@ export class Search extends React.Component<ISearchProps, ISearchState> {
 
   render() {
     return (
-      <div>
+      <Grid>
         <SearchBar onSubmit={this.searchForSophia}/>
         <SearchResults resultData={this.state.resultData}/>
-      </div>
+      </Grid>
     );
   }
 }

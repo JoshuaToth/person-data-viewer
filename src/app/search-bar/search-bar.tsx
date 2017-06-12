@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Row } from 'react-bootstrap'
 import axios from 'axios';
 
 
@@ -30,7 +31,7 @@ export class SearchBar extends React.Component<ISearchBarProps, ISearchBarState>
   
   render() {
     return (      
-      <div>
+      <Row>
         <form onSubmit={this.handleSubmit}>
           
           <input type="text" 
@@ -39,7 +40,7 @@ export class SearchBar extends React.Component<ISearchBarProps, ISearchBarState>
             placeholder="Sophia" />
           <button type="Submit">search</button>
         </form>
-      </div>
+      </Row>
     );
   }
 }
