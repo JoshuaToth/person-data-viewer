@@ -35,11 +35,10 @@ export class SearchBar extends React.Component<ISearchBarProps, ISearchBarState>
       <Row className="search-bar">
         <Col>
           <form className="search-input" onSubmit={this.handleSubmit}>            
-            <button type="Submit"><i className="fa fa-search" aria-hidden="true"></i></button>
             <input type="text" 
               value={this.state.searchTerm}
               onChange={(event) => this.setState({ searchTerm: event.target.value})}
-              placeholder="Sophia" />
+              placeholder="Search" />
           </form>
         </Col>
       </Row>
