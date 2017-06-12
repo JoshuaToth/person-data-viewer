@@ -11,7 +11,7 @@ export const SearchResults = (props) => {
   return (
     <div>
       <Aggregate.SearchResultsAggregate />
-      <Person.SearchResultsPerson persons={props.resultData.hits.hits}/>
+      <Person.SearchResultsPerson persons={props.resultData.hits.hits} total={props.resultData.hits.total}/>
     </div>
   );
 }

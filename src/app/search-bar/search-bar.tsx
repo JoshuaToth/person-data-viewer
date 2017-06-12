@@ -13,7 +13,7 @@ export class SearchBar extends React.Component<ISearchBarProps, ISearchBarState>
     event.preventDefault();
     axios.post(`http://localhost:8080/api/person/search`, {
       name: {
-        firstName: "Sophia",
+        firstName: this.state.searchTerm,
         lastName: ""
       },
       tags: []
@@ -23,12 +23,20 @@ export class SearchBar extends React.Component<ISearchBarProps, ISearchBarState>
         this.props.onSubmit(resp.data);
       });
   }
+
+  state = {
+    searchTerm: ""
+  };
   
   render() {
     return (      
       <div>
-        <h1>{'SearchBar'}</h1>
         <form onSubmit={this.handleSubmit}>
+          
+          <input type="text" 
+            value={this.state.searchTerm}
+            onChange={(event) => this.setState({ searchTerm: event.target.value})}
+            placeholder="Sophia" />
           <button type="Submit">search</button>
         </form>
       </div>
