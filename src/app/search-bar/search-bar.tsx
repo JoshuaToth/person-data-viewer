@@ -34,13 +34,12 @@ export class SearchBar extends React.Component<ISearchBarProps, ISearchBarState>
     return (      
       <Row className="search-bar">
         <Col>
-          <form onSubmit={this.handleSubmit}>
-            
+          <form className="search-input" onSubmit={this.handleSubmit}>            
+            <button type="Submit"><i className="fa fa-search" aria-hidden="true"></i></button>
             <input type="text" 
               value={this.state.searchTerm}
               onChange={(event) => this.setState({ searchTerm: event.target.value})}
               placeholder="Sophia" />
-            <button type="Submit"><i className="fa fa-search" aria-hidden="true"></i></button>
           </form>
         </Col>
       </Row>
