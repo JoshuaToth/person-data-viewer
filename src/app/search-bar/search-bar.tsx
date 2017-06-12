@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap'
 import axios from 'axios';
 
 import './search-bar.less';
+import * as SearchService from '../search-service';
 
 interface ISearchBarProps {
   onSubmit: {(data):void}
@@ -13,17 +14,15 @@ interface ISearchBarState {};
 export class SearchBar extends React.Component<ISearchBarProps, ISearchBarState> {
   handleSubmit = (event) => {
     event.preventDefault();
-    axios.post(`http://localhost:8080/api/person/search`, {
+    var searchObj = {
       name: {
         firstName: this.state.searchTerm,
         lastName: ""
       },
       tags: []
-    })
-    .then(resp => {
-      console.log(resp);
-      this.props.onSubmit(resp.data);
-    });
+    };   
+    
+    SearchService.personSearch(searchObj,this.props.onSubmit);
   }
 
   state = {
