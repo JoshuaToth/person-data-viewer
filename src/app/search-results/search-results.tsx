@@ -7,13 +7,11 @@ interface ISearchResultsProps {};
 
 interface ISearchResultsState {};
 
-export class SearchResults extends React.Component<ISearchResultsProps, ISearchResultsState> {
-  render() {
-    return (
-      <div>
-        <Aggregate.SearchResultsAggregate />
-        <Person.SearchResultsPerson />
-      </div>
-    );
-  }
+export const SearchResults = (props) => {
+  return (
+    <div>
+      <Aggregate.SearchResultsAggregate />
+      <Person.SearchResultsPerson persons={props.resultData.hits.hits}/>
+    </div>
+  );
 }
