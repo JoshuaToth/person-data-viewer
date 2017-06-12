@@ -1,14 +1,13 @@
 import * as React from 'react';
 import { Col } from 'react-bootstrap';
-import './search-results-person-card';
+import './search-results-person-card.less';
 
 export const SearchResultsPersonCard = (props) => {
   return (
-    <Col xs={12} md={4} className="person-card">
-      <p>{props.name.firstName}</p>
-      <p>{props.name.lastName}</p>
-      <p>{props.contact.email[0].address}</p>
-      <p>{props.contact.phone[0].number}</p>
+    <Col xs={12} md={3} className="person-card">
+      <p>Name: {props.name.firstName} {props.name.lastName}</p>
+      <p>Email: {props.contact.email[0].address}</p>
+      <p>Phone: {props.contact.phone[0].number}</p>
     </Col>
   );
 };
