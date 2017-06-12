@@ -7,7 +7,7 @@ export const SearchResultsPerson = (props) => {
     <Col xs={12} md={8}>
       <p>{props.total ? `Total Results found: ${props.total}`: ""}</p>
       {props.persons.map(person => <PersonCard.SearchResultsPersonCard {...person._source} key={person._id}/>)}
-      <button>Load more</button>
+      { props.total && <button>Load more</button> }
     </Col>
   );
 };

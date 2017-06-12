@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { Row } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import axios from 'axios';
 
+import './search-bar.less';
 
 interface ISearchBarProps {
   onSubmit: {(data):void}
@@ -31,15 +32,17 @@ export class SearchBar extends React.Component<ISearchBarProps, ISearchBarState>
   
   render() {
     return (      
-      <Row>
-        <form onSubmit={this.handleSubmit}>
-          
-          <input type="text" 
-            value={this.state.searchTerm}
-            onChange={(event) => this.setState({ searchTerm: event.target.value})}
-            placeholder="Sophia" />
-          <button type="Submit">search</button>
-        </form>
+      <Row className="search-bar">
+        <Col>
+          <form onSubmit={this.handleSubmit}>
+            
+            <input type="text" 
+              value={this.state.searchTerm}
+              onChange={(event) => this.setState({ searchTerm: event.target.value})}
+              placeholder="Sophia" />
+            <button type="Submit"><i className="fa fa-search" aria-hidden="true"></i></button>
+          </form>
+        </Col>
       </Row>
     );
   }
