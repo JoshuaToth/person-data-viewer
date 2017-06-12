@@ -18,3 +18,11 @@ export function tagSearch(tag, forward) {
     }
     personSearch(searchObj,forward);
 }
+
+export function moreLikeSearch(id, forward) {
+    axios.post(`http://localhost:8080/api/person/morelike`, [id])
+    .then(resp => {
+        console.log(resp);
+        forward(resp.data);
+    });
+}

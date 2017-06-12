@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as AggregateTags from './search-results-aggregate-tags/search-results-aggregate-tags'; // Rename to tag?
+import * as SearchService from '../../search-service';
 import { Grid, Col } from 'react-bootstrap'
 import axios from 'axios';
 
 import './search-results-aggregate.less';
-import * as SearchService from '../../search-service';
 
 export const SearchResultsAggregate = (props) => {  
   return (
