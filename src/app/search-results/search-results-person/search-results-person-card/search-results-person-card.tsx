@@ -1,6 +1,4 @@
 import * as React from 'react';
-
-
 export const SearchResultsPersonCard = (props) => {
   return (
     <div>

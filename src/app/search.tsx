@@ -19,6 +19,11 @@ export class Search extends React.Component<ISearchProps, ISearchState> {
     resultData: {
       hits: {
         hits: []
+      },
+      aggregations: {
+        tagAggs: {
+          buckets: []
+        }
       }
     }
   }

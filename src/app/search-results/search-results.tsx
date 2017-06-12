@@ -10,7 +10,7 @@ interface ISearchResultsState {};
 export const SearchResults = (props) => {
   return (
     <div>
-      <Aggregate.SearchResultsAggregate />
+      <Aggregate.SearchResultsAggregate tagAggs={props.resultData.aggregations.tagAggs}/>
       <Person.SearchResultsPerson persons={props.resultData.hits.hits} total={props.resultData.hits.total}/>
     </div>
   );
