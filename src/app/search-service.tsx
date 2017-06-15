@@ -1,14 +1,14 @@
 import axios from 'axios';
 
-export function personSearch(searchObject, forward) {
+export function personSearch(searchObject, forward, data) {
     axios.post(`http://localhost:8080/api/person/search`, searchObject)
     .then(resp => {
         console.log(resp);
-        forward(resp.data);
+        forward(resp.data, data);
     });
 };
 
-export function tagSearch(tag, forward) {
+export function tagSearch(tag, forward, data) {
     let searchObj = {
       name: {
         firstName: "",
@@ -16,7 +16,7 @@ export function tagSearch(tag, forward) {
       },
       tags: [tag]
     }
-    personSearch(searchObj,forward);
+    personSearch(searchObj,forward, data);
 }
 
 export function moreLikeSearch(id, forward) {
