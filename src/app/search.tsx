@@ -14,7 +14,7 @@ interface ISearchState {
 };
 
 export class Search extends React.Component<ISearchProps, ISearchState> {
-
+// This can maybe be all moved to a different class? Leave here for now. 
   searchForSophia = (data) => {    
       this.setState({
         resultData: data,
@@ -28,7 +28,7 @@ export class Search extends React.Component<ISearchProps, ISearchState> {
           firstName: data,
           lastName: ""
         },
-        tags: this.state.tags
+        tags: []
       };
 
       SearchService.personSearch(searchObj,this.addSearchTerm,data);
@@ -78,7 +78,7 @@ export class Search extends React.Component<ISearchProps, ISearchState> {
   addSearchTerm = (dataResp, data) => { 
     this.setState({
         resultData: dataResp,
-        tags: this.state.tags,
+        tags: [],
         searchTerm: data
       });
   }
