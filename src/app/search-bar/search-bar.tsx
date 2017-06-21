@@ -8,9 +8,7 @@ import * as SearchBarTag from './search-bar-tag/search-bar-tag';
 
 interface ISearchBarProps {
   onSubmit: {(data):void},
-  tags: string[],
-  searchTerm: string,
-  removeTag: {(data):void}
+  searchTerm: string
 };
 
 interface ISearchBarState {};
@@ -36,9 +34,6 @@ export class SearchBar extends React.Component<ISearchBarProps, ISearchBarState>
                 onChange={(event) => this.setState({ searchTerm: event.target.value})}
                 placeholder="Search" />
             </form>
-          </Row>
-          <Row className="search-bar-tags">
-            {this.props.tags.map(tag => <SearchBarTag.SearchBarTag removeTag={this.props.removeTag} tagName={tag} key={tag}/>)}
           </Row>
         </Col>
       </Row>

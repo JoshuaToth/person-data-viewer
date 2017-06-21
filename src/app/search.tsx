@@ -71,23 +71,17 @@ export class Search extends React.Component<ISearchProps, ISearchState> {
       SearchService.personSearch(searchObj, this.removeTag, data);
   };
 
-  addTag = (dataResp, data) => { 
-    var resultData = dataResp;
-    resultData.aggregations.tagAggs.buckets = dataResp.aggregations.tagAggs.buckets.filter(tag => this.state.tags.concat(data).indexOf(tag.key) < 0)
-    
+  addTag = (dataResp, data) => {     
     this.setState({
-        resultData: resultData,
+        resultData: dataResp,
         tags: this.state.tags.concat(data),
         searchTerm: this.state.searchTerm
       });
   }
 
   removeTag = (dataResp, data) => {
-    var resultData = dataResp;
-    resultData.aggregations.tagAggs.buckets = dataResp.aggregations.tagAggs.buckets.filter(tag => this.state.tags.filter(tag => tag != data).indexOf(tag.key) < 0)
-
     this.setState({
-        resultData: resultData,
+        resultData: dataResp,
         tags: this.state.tags.filter(tag => tag != data),
         searchTerm: this.state.searchTerm
       });
@@ -131,8 +125,8 @@ export class Search extends React.Component<ISearchProps, ISearchState> {
   render() {
     return (
       <Grid>
-        <SearchBar removeTag={this.searchForRemoveTag} onSubmit={this.searchForWithName} tags={this.state.tags} searchTerm={this.state.searchTerm}/>
-        <SearchResults loadMore={this.searchForLoadMore} addTag={this.searchForAddTag} onSubmit={this.searchForSophia} resultData={this.state.resultData}/>
+        <SearchBar onSubmit={this.searchForWithName} searchTerm={this.state.searchTerm}/>
+        <SearchResults removeTag={this.searchForRemoveTag} loadMore={this.searchForLoadMore} searchedTags={this.state.tags} addTag={this.searchForAddTag} onSubmit={this.searchForSophia} resultData={this.state.resultData}/>
       </Grid>
     );
   }

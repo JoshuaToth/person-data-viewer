@@ -9,7 +9,7 @@ export const SearchResults = (props) => {
     <div>
       <Row className="show-grid">
         {props.resultData.aggregations ?
-          <Aggregate.SearchResultsAggregate onSubmit={props.onSubmit} addTag={props.addTag} tagAggs={props.resultData.aggregations.tagAggs as any}/>
+          <Aggregate.SearchResultsAggregate searchedTags={props.searchedTags} onSubmit={props.onSubmit} addTag={props.addTag} removeTag={props.removeTag} tagAggs={props.resultData.aggregations.tagAggs as any}/>
         : <Col md={2}></Col>
         }
         <Person.SearchResultsPerson onSubmit={props.onSubmit} persons={props.resultData.hits.hits} total={props.resultData.hits.total}/>

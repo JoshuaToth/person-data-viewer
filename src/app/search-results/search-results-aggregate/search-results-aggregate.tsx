@@ -11,7 +11,7 @@ export const SearchResultsAggregate = (props) => {
     <Col xs={6} md={2} className="search-aggregate">
       <p>Tags: {props.tagAggs.buckets.length}</p>
       <Grid>
-        {props.tagAggs.buckets.map(tag => <AggregateTags.SearchResultsAggregateTags addTag={props.addTag} tagName={tag.key} count={tag.doc_count} key={tag.key}/>)}
+        {props.tagAggs.buckets.map(tag => <AggregateTags.SearchResultsAggregateTags addTag={props.addTag} removeTag={props.removeTag} searchedTags={props.searchedTags} tagName={tag.key} count={tag.doc_count} key={tag.key}/>)}
       </Grid>
     </Col>
   );
