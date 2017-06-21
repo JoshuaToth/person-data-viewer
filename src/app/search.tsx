@@ -34,6 +34,18 @@ export class Search extends React.Component<ISearchProps, ISearchState> {
       SearchService.personSearch(searchObj,this.addSearchTerm,data);
   };
 
+  searchForLoadMore = (data) => {  
+      let searchObj = {
+        name: {
+          firstName: this.state.searchTerm,
+          lastName: ""
+        },
+        tags: this.state.tags
+      };
+
+      SearchService.personSearch(searchObj,this.requestNextPage,data,data);
+  };
+
   searchForAddTag = (data) => {  
       console.log('ay');
       let searchObj = {
@@ -83,6 +95,17 @@ export class Search extends React.Component<ISearchProps, ISearchState> {
       });
   }
 
+  requestNextPage = (dataResp, data) => { 
+    let resultData = dataResp;
+    resultData.hits.hits = this.state.resultData.hits.hits.concat(resultData.hits.hits);
+
+    this.setState({
+        resultData: resultData,
+        tags: this.state.tags,
+        searchTerm: this.state.searchTerm
+      });
+  }
+
 
   state = {
     resultData: {
@@ -103,7 +126,7 @@ export class Search extends React.Component<ISearchProps, ISearchState> {
     return (
       <Grid>
         <SearchBar removeTag={this.searchForRemoveTag} onSubmit={this.searchForWithName} tags={this.state.tags} searchTerm={this.state.searchTerm}/>
-        <SearchResults addTag={this.searchForAddTag} onSubmit={this.searchForSophia} resultData={this.state.resultData}/>
+        <SearchResults loadMore={this.searchForLoadMore} addTag={this.searchForAddTag} onSubmit={this.searchForSophia} resultData={this.state.resultData}/>
       </Grid>
     );
   }
