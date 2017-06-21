@@ -72,16 +72,22 @@ export class Search extends React.Component<ISearchProps, ISearchState> {
   };
 
   addTag = (dataResp, data) => { 
+    var resultData = dataResp;
+    resultData.aggregations.tagAggs.buckets = dataResp.aggregations.tagAggs.buckets.filter(tag => this.state.tags.concat(data).indexOf(tag.key) < 0)
+    
     this.setState({
-        resultData: dataResp,
+        resultData: resultData,
         tags: this.state.tags.concat(data),
         searchTerm: this.state.searchTerm
       });
   }
 
   removeTag = (dataResp, data) => {
+    var resultData = dataResp;
+    resultData.aggregations.tagAggs.buckets = dataResp.aggregations.tagAggs.buckets.filter(tag => this.state.tags.filter(tag => tag != data).indexOf(tag.key) < 0)
+
     this.setState({
-        resultData: dataResp,
+        resultData: resultData,
         tags: this.state.tags.filter(tag => tag != data),
         searchTerm: this.state.searchTerm
       });
