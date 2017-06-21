@@ -15,7 +15,7 @@ export const SearchResults = (props) => {
         <Person.SearchResultsPerson onSubmit={props.onSubmit} persons={props.resultData.hits.hits} total={props.resultData.hits.total}/>
       </Row>
       <Row>
-        {props.resultData.hits.total ? <button onClick={() => {props.loadMore(props.resultData.hits.hits.length)}} className="btn btn-primary btn-block">Load More</button>: ""}
+        {props.resultData.hits.total > props.resultData.hits.hits.length? <button onClick={() => {props.loadMore(props.resultData.hits.hits.length)}} className="btn btn-primary btn-block">Load More</button>: ""}
       </Row>
     </div>
   );
